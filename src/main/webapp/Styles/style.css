@@ -1,0 +1,49 @@
+body {
+    margin-top: 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue;
+    background-color: #2a2b2e;
+    
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+nav {
+    text-align: center;
+}
+
+a {
+    color: green;
+    padding: 3%;
+}
+
+a :hover {
+    font-size: 100px;
+}
+
+.estiloContenedor {
+    width: 30%;
+    background-color: #242426;
+    border-radius: 24px;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+.estiloContenedor ul{
+    display: inline-block;
+    margin: 0 auto;
+    margin: 5%;
+}
+
+.estiloContenedor ul li{
+margin-bottom: 10px;
+}
+
+.infoFooter{
+bottom: 0;
+position: absolute;
+width: 100%;
+}
