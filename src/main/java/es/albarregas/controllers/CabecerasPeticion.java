@@ -38,7 +38,7 @@ public class CabecerasPeticion extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CabecerasPeticion</title>");            
+            out.println("<title>Servlet CabecerasPeticion</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CabecerasPeticion at " + request.getContextPath() + "</h1>");
@@ -58,8 +58,8 @@ public class CabecerasPeticion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          Enumeration<String> cabeceras = request.getHeaderNames();
-          String [] traduccion = {"Anfitrion de la pagina", "Estado de la conexion ", "Version del navegador", "Version Movil", "Plataforma ", "Solicitudes inseguras de actualización", "Identificador de usuario", "Accept", "Origen Solicitud", "Modo Solicutud", "Usuarios Solicitud", "Destino Solicutud", "Referencia", "Codificación", "Idioma"};
+        Enumeration<String> cabeceras = request.getHeaderNames();
+        String[] traduccion = {"Anfitrion de la pagina", "Estado de la conexion ", "Version navegador", "Version movil", "Plataforma ", "Solicitudes inseguras de actualización", "Identificador de usuario", "Accept", "Origen solicitud", "Modo solicutud", "Usuarios solicitud", "Destino solicutud", "Referencia", "Codificación", "Idioma"};
          try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -74,17 +74,14 @@ public class CabecerasPeticion extends HttpServlet {
                     String nombre = cabeceras.nextElement();
                     out.println("<p><b>" + nombreEspanol + "</b> ---> " + request.getHeader(nombre) + "</p>");
                 }
-            
-            //arreglar
-            //String nombre= request.getParameter("nombre");
-            out.println("<p>" + request.getParameter("nombre") + "</p>");           
+            out.println("<p>Valor del parametro: " + request.getParameter("nombre") + "</p>");           
             out.println("<p><a href=\".\">Volver</a></p>");
             out.println("</body>");
             out.println("</html>");
-        }
+     }
     }
 
-    /**
+   /**
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
@@ -95,8 +92,7 @@ public class CabecerasPeticion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
-        
+
     }
 
     /**
