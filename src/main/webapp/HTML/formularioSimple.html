@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <h1>Formulario Simple</h1>
+    <form id="formulario" action="../formularioSimple" method="post">
+        <fieldset>
+            <legend>Formulario Simple</legend>
+            <label for="usuario">usuario</label>
+            <input type="text" id="usuario" name="usuario">
+            <br><br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <br>
+            <p>Opciones</p>
+
+            <label for="marca">Primero</label>
+            <input type="checkbox" name="marca" value="primera"><br>
+
+            <label for="marca">Segundo</label>
+            <input type="checkbox" name="marca" value="segunda"><br>
+
+            <label for="marca">Tercero</label>
+            <input type="checkbox" name="marca" value="tercera"><br><br>
+
+            <input type="submit" name="enviar" value="Enviar">
+        </fieldset>
+    </form>
+</body>
+
+</html>

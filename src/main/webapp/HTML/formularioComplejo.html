@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Complejo</title>
+</head>
+
+<body>
+    <h1>Formulario Complejo</h1>
+    <form id="formulario" action="../formulario" method="post">
+        <fieldset>         <!--Datos personales-->
+            <legend>Datos personales</legend>
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Ej: Rodrigo">
+            <br><br>
+
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" name="contrasena">
+            <br><br>
+
+            <label for="edad">Edad:</label>
+            <select name="edad" id="edad">
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+            </select>
+        </fieldset>
+        <br>
+        <fieldset>          <!--Otros datos-->
+            <legend>Otros datos</legend>
+            <p> Estado civil
+                <input type="radio" id="soltero" name="estadoCivil">
+                <label for="soltero">Soltero/a</label>
+
+                <input type="radio" id="casado" name="estadoCivil">
+                <label for="casado">Casado/a</label>
+
+                <input type="radio" id="viudo" name="estadoCivil">
+                <label for="viudo">Viudo/a</label>
+
+                <input type="radio" id="divorciado" name="estadoCivil">
+                <label for="divorciado">Divorciado/a</label>
+            </p>
+
+            <p>
+                Aficiones(uno o varios, CTRL): <br>
+                <select name="aficiones" multiple>
+                    <option value="deporte">Deporte</option>
+                    <option value="musica">Musica</option>
+                    <option value="informatica">Informatica</option>
+                    <option value="viajes">Viajes</option>
+                    <option value="tiendas">Tiendas</option>
+                    <option value="juegos">Juegos</option>
+                </select>
+            </p>
+
+            <label for="comentarios">Comentarios:</label><br>
+            <textarea name="comentario" id="comentario" cols="50" rows="3"
+                placeholder="Pon tu comentario..."></textarea>
+
+        </fieldset>
+        <br>
+        <fieldset>         <!--Medios Tecnológicos-->
+            <legend>Medios Tecnológicos</legend>
+            <p> Dispones de internet?:
+                <input type="radio" id="Si" name="mediosTecnologicos">
+                <label for="Si">Si</label>
+
+                <input type="radio" id="No" name="mediosTecnologicos">
+                <label for="No">No</label> 
+            </p>
+            <p>
+                Sistema operativo <br>
+                <select name="sistemaOperativo" size="4">
+                    <option value="deporte">Linux</option>
+                    <option value="musica">Windows</option>
+                    <option value="informatica">Macintosh</option>
+                    <option value="viajes">Solaris</option>
+                    <option value="viajes">ChromeOS</option>
+                </select>
+            </p>
+                <input type="hidden" name="oculto" id="oculto" value="Oculto">
+        </fieldset>
+        <br>
+
+        <input type="submit" name="enviar" value="Enviar">
+        <input type="reset" name="limpiar" value="Limpiar">
+
+    </form>
+</body>
+
+</html>
