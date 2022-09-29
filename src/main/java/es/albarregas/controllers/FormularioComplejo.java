@@ -7,7 +7,7 @@ package es.albarregas.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sergio
  */
-@WebServlet(name = "FormularioSimple", urlPatterns = {"/FormularioSimple"})
-public class FormularioSimple extends HttpServlet {
+@WebServlet(name = "FormularioComplejo", urlPatterns = {"/FormularioComplejo"})
+public class FormularioComplejo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,7 +30,7 @@ public class FormularioSimple extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response, boolean correcto)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -38,31 +38,14 @@ public class FormularioSimple extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Formulario Simple</title>");
+            out.println("<title>Datos formulario complejo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Formulario Simple</h1>");
-            out.println("<h2>Datos introducidos en el formulario</h2>");
-            if (!correcto) {
-                out.println("<p>No se han introducido datos</p>");
-            } else{
-                Enumeration<String> parametros = request.getParameterNames();
-                while (parametros.hasMoreElements()) {
-                    String nombre = parametros.nextElement();
-                    if (!nombre.startsWith("env")) {
-                        if (!nombre.startsWith("marca")) {
-                            out.println(nombre + "-<strong>" + request.getParameter(nombre) + "</strong> </br>");
-                        } else {
-                            String[] valores = request.getParameterValues(nombre);
-                            for (String valor : valores) {
-                                out.println(nombre + "-<strong>" + valor + "</strong> </br>");
-                            }
-                        }
-                    }
-                }
-                out.println("</body>");
-                out.println("</html>");
-            }
+            out.println("<h1>Datos Formulario Complejo</h1>");
+            
+            
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -77,9 +60,7 @@ public class FormularioSimple extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        boolean correcto = false;
-        processRequest(request, response, correcto);
-
+        processRequest(request, response);
     }
 
     /**
@@ -93,8 +74,7 @@ public class FormularioSimple extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        boolean correcto = true;
-        processRequest(request, response, correcto);
+        processRequest(request, response);
     }
 
     /**

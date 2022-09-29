@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sergio
  */
-@WebServlet(name = "formularioSimple", urlPatterns = {"/formularioSimple"})
+@WebServlet(name = "FormularioSimple", urlPatterns = {"/FormularioSimple"})
 public class FormularioSimple extends HttpServlet {
 
     /**
