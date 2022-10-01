@@ -43,7 +43,14 @@ public class FormularioComplejo extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Datos Formulario Complejo</h1>");
             
-            
+            Map <String, String[]> parametros = request.getParameterMap();                
+            for(Map.Entry<String, String[]> entrada: parametros.entrySet()){
+                if(!entrada.getKey().startsWith("env")){               
+                    for (String datos: entrada.getValue()) {
+                        out.println("<p><b>" + entrada.getKey() + ": </b>" +  datos + "</p>");
+                    }
+                }  
+            }
             out.println("</body>");
             out.println("</html>");
         }

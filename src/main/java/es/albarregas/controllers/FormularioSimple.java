@@ -38,11 +38,11 @@ public class FormularioSimple extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Formulario Simple</title>");
+            out.println("<title>Datos formulario simple</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Formulario Simple</h1>");
-            out.println("<h2>Datos introducidos en el formulario</h2>");
+            out.println("<h1>Datos formulario simple</h1>");
+            
             if (!correcto) {
                 out.println("<p>No se han introducido datos</p>");
             } else{
@@ -51,21 +51,21 @@ public class FormularioSimple extends HttpServlet {
                     String nombre = parametros.nextElement();
                     if (!nombre.startsWith("env")) {
                         if (!nombre.startsWith("marca")) {
-                            out.println(nombre + "-<strong>" + request.getParameter(nombre) + "</strong> </br>");
+                            out.println(nombre + "-<b>" + request.getParameter(nombre) + "</b> </br>");
                         } else {
                             String[] valores = request.getParameterValues(nombre);
-                            for (String valor : valores) {
-                                out.println(nombre + "-<strong>" + valor + "</strong> </br>");
+                            for (String datos : valores) {
+                                out.println(nombre + "-<b>" + datos + "</b> </br>");
                             }
                         }
                     }
-                }
-                out.println("</body>");
-                out.println("</html>");
-            }
+                }               
+            }        
+            out.println("</body>");
+            out.println("</html>");
         }
     }
-
+   
     /**
      * Handles the HTTP <code>GET</code> method.
      *
