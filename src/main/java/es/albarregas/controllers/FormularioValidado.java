@@ -7,6 +7,7 @@ package es.albarregas.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -36,23 +37,31 @@ public class FormularioValidado extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-                        
+           
+            /*
+            //PRUEBAS
             //creacion de mapa para guardar la info introducida
-            HashMap <String, String> infoIntroducida = new HashMap <String, String>();
-                        
+            HashMap <String, String> verInfoIntroducida = new HashMap <String, String>();                       
             Map <String, String[]> datos = request.getParameterMap();                
             for(Map.Entry<String, String[]> entrada: datos.entrySet()){ 
                  if(!entrada.getKey().startsWith("envi")){
                       for (String info: entrada.getValue()) {
-                        infoIntroducida.put(entrada.getKey(), info);            //guardando info introducida en mi mapa
+                        verInfoIntroducida.put(entrada.getKey(), info);        //guardando info introducida en mi mapa
                     } 
                  }                                                   
-            }   
-                        
-            out.println(infoIntroducida); //probar datos introducidos
+            }            
+            //probar datos introducidos
+            out.println(verInfoIntroducida); 
+            out.println("<br><br>");
+            //probar datos introducidos
+            //PRUEBAS
+            */
+            
+                 
+            //condicion para entrar en la pagina de mostrar los datos
+            if(request.getParameter("nombre").length()==0 || request.getParameter("usuario").length()==0 || request.getParameter("contrasena").length()<6){
 
-            
-            
+             
             out.println("<!DOCTYPE html>");
             out.println("<html lang=\"es\">");
             out.println("<head>");
@@ -63,41 +72,214 @@ public class FormularioValidado extends HttpServlet {
             out.println("<link rel=\"stylesheet\" href=\"Styles/styleFormularioValidado.css\">");                      
             out.println("</head>");
             out.println("<body>");
-            out.println("<form id=\"formulario\" action=\"FormularioValidado\" method=\"post\">");
-                   //Informacion Personal
+            out.println("<form id=\"formulario\" action=\"./FormularioValidado\" method=\"post\">");
+                       
+            
+            //logica de recuento de errores
+                        //obligatorios
+            if(request.getParameter("nombre").length()==0){               
+            out.println("<p>Debes introcudir un Nombre</p>");
+            }
+            if(request.getParameter("usuario").length()==0){
+            out.println("<p>Debes introcudir un Usuario</p>");
+            }        
+            if(request.getParameter("contrasena").length()<6){
+            out.println("<p>Contraseña no valida</p>");
+            } 
+                         //obligatorios
+
+                         
+                        //validar meses
+            if (request.getParameter("mes").equals("2")) {      //validacion febrero
+                if (request.getParameter("dia").equals("31")) {
+                    out.println("<p>Fecha incorrecta(mes)</p>");
+                }               
+            }
+             if (request.getParameter("mes").equals("2")) {      //validacion febrero
+                if (request.getParameter("dia").equals("30")) {
+                    out.println("<p>Fecha incorrecta(mes)</p>");
+                }               
+            }
+            if (request.getParameter("mes").equals("4")) {      //validacion abril
+                if (request.getParameter("dia").equals("31")) {
+                    out.println("<p>Fecha incorrecta(mes)</p>");
+                }                                                                           //ninguno de estos meses tiene 31 dias
+            }
+            if (request.getParameter("mes").equals("6")) {      //validacion junio
+                if (request.getParameter("dia").equals("31")) {
+                    out.println("<p>Fecha incorrecta(mes)</p>");
+                }               
+            }
+            if (request.getParameter("mes").equals("9")) {      //validacion septiembre
+                if (request.getParameter("dia").equals("31")) {
+                    out.println("<p>Fecha incorrecta(mes)</p>");
+                }               
+            }
+            if (request.getParameter("mes").equals("11")) {     //validacion noviembre
+                if (request.getParameter("dia").equals("31")) {
+                    out.println("<p>Fecha incorrecta(mes)</p>");
+                }               
+            }
+            
+            
+                        //validacion bisiestos
+            
+            int castingDia = Integer.parseInt(request.getParameter("dia"));
+            if (request.getParameter("anio").equals("2001")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");                    
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2002")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2003")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }            
+            if (request.getParameter("anio").equals("2005")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2006")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2007")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2009")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2010")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2011")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2013")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2014")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2015")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2017")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2018")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2019")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2021")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            if (request.getParameter("anio").equals("2022")) {     
+                if (request.getParameter("mes").equals("2")) {
+                    if (castingDia >= 29) {
+                      out.println("<p>Fecha incorrecta(año)</p>");
+                    }                    
+                }               
+            }
+            //logica de recuento de errores
+                         
+            
+            //Informacion Personal
             out.println("<fieldset>");           
             out.println("<h3>Informacion Personal</h3>");           
             out.println("<label for=\"nombre\">*Nombre</label>");           
-            out.println("<input type=\"text\" id=\"nombre\" name=\"nombre\" value=\"" + infoIntroducida.get("nombre") + "\" >");           
+            out.println("<input type=\"text\" id=\"nombre\" name=\"nombre\" value=\"" + request.getParameter("nombre") + "\" >");           
             out.println("<br><br>");           
             out.println("<label for=\"apellidos\">Apellidos</label>");           
-            out.println("<input type=\"text\" id=\"apellidos\" name=\"apellidos\" value=\"" + infoIntroducida.get("apellidos") + "\">");           
+            out.println("<input type=\"text\" id=\"apellidos\" name=\"apellidos\" value=\"" + request.getParameter("apellidos") + "\">");           
             out.println("<p> Sexo:");     
                 
-            
-            
-            //fallo al sacar el radio marcado anteriormente
-            if(infoIntroducida.get("sexo")== "hombre"){
-            out.println("<input type=\"radio\" id=\"hombre\" name=\"sexo\" checked=\"checked\">");
+             
+            //logica radio sexo
+            if(request.getParameter("sexo").equals("hombre")){
+            out.println("<input type=\"radio\" id=\"hombre\" name=\"sexo\" checked=\"checked\" value=\"hombre\" >");
             out.println("<label for=\"hombre\">Hombre</label>");
             
-            out.println("<input type=\"radio\" id=\"mujer\" name=\"sexo\" >");           
+            out.println("<input type=\"radio\" id=\"mujer\" name=\"sexo\" value=\"mujer\" >");           
             out.println("<label for=\"mujer\">Mujer</label>");           
             }else{
-                out.println("<input type=\"radio\" id=\"hombre\" name=\"sexo\">");
+                out.println("<input type=\"radio\" id=\"hombre\" name=\"sexo\" value=\"hombre\">");
                 out.println("<label for=\"hombre\">Hombre</label>");
             
-                out.println("<input type=\"radio\" id=\"mujer\" name=\"sexo\" checked=\"checked\">");
+                out.println("<input type=\"radio\" id=\"mujer\" name=\"sexo\" checked=\"checked\" value=\"mujer\">");
                 out.println("<label for=\"mujer\">Mujer</label>");
             }
-            //fallo al sacar el radio marcado anteriormente
-
-            
+            //logica radio sexo
+         
             
             out.println("</p>");           
             out.println("<p>");           
             out.println("<label for=\"fechaNac\">Fecha de nacimiento: </label>");           
-            out.println("<select name=\"dia\" id=\"dia\">");           
+            out.println("<select name=\"dia\" id=\"dia\">");              
+            out.println("<option value="+request.getParameter("dia")+">"+request.getParameter("dia")+"</option>");           
             out.println("<option value=\"1\">1</option>");           
             out.println("<option value=\"2\">2</option>");           
             out.println("<option value=\"3\">3</option>");           
@@ -131,7 +313,8 @@ public class FormularioValidado extends HttpServlet {
             out.println("<option value=\"31\">31</option>");           
             out.println("</select>");           
             out.println("/");           
-            out.println("<select name=\"mes\" id=\"mes\">");           
+            out.println("<select name=\"mes\" id=\"mes\">");    
+            out.println("<option value="+request.getParameter("mes")+">"+request.getParameter("mes")+"</option>");
             out.println("<option value=\"1\">1</option>");           
             out.println("<option value=\"2\">2</option>");           
             out.println("<option value=\"3\">3</option>");           
@@ -144,29 +327,10 @@ public class FormularioValidado extends HttpServlet {
             out.println("<option value=\"10\">10</option>");           
             out.println("<option value=\"11\">11</option>");           
             out.println("<option value=\"12\">12</option>");           
-            out.println("</select>");           
+            out.println("</select>");      
             out.println("/");           
-            out.println("<select name=\"anio\" id=\"anio\">");           
-            out.println("<option value=\"1980\">1980</option>");           
-            out.println("<option value=\"1981\">1981</option>");           
-            out.println("<option value=\"1982\">1982</option>");           
-            out.println("<option value=\"1983\">1983</option>");           
-            out.println("<option value=\"1984\">1984</option>");           
-            out.println("<option value=\"1985\">1985</option>");           
-            out.println("<option value=\"1986\">1986</option>");           
-            out.println("<option value=\"1987\">1987</option>");           
-            out.println("<option value=\"1988\">1988</option>");           
-            out.println("<option value=\"1989\">1989</option>");           
-            out.println("<option value=\"1990\">1990</option>");           
-            out.println("<option value=\"1991\">1991</option>");           
-            out.println("<option value=\"1992\">1992</option>");           
-            out.println("<option value=\"1993\">1993</option>");           
-            out.println("<option value=\"1994\">1994</option>");           
-            out.println("<option value=\"1995\">1995</option>");           
-            out.println("<option value=\"1996\">1996</option>");           
-            out.println("<option value=\"1997\">1997</option>");           
-            out.println("<option value=\"1998\">1998</option>");           
-            out.println("<option value=\"1999\">1999</option>");           
+            out.println("<select name=\"anio\" id=\"anio\">");                            
+            out.println("<option value="+request.getParameter("anio")+">"+request.getParameter("anio")+"</option>");
             out.println("<option value=\"2000\">2000</option>");           
             out.println("<option value=\"2001\">2001</option>");           
             out.println("<option value=\"2002\">2002</option>");           
@@ -192,26 +356,33 @@ public class FormularioValidado extends HttpServlet {
             out.println("<option value=\"2022\">2022</option>");           
             out.println("</select>");           
             out.println("</p>");           
-            out.println("<br>");           
-                    //Datos de acceso
+            out.println("<br>");     
+            
+            
+                    //Datos de acceso                                               
             out.println("<h3>Datos de acceso</h3>");           
-            out.println("<label for=\"usuario\">*Usuario</label>");           
-            out.println("<input type=\"text\" id=\"usuario\" name=\"usuario\" placeholder=\"Ej: CRosado_07\" value=\"" + infoIntroducida.get("usuario") + "\">");           
+            out.println("<label for=\"usuario\">*Usuario</label>");          
+            out.println("<input type=\"text\" id=\"usuario\" name=\"usuario\" placeholder=\"Ej: CRosado_07\" value=\"" + request.getParameter("usuario") + "\">");           
             out.println("<br><br>");           
             out.println("<label for=\"contrasena\">*Contraseña</label>");           
-            out.println("<input type=\"password\" id=\"contrasena\" name=\"contrasena\" value=\"" + infoIntroducida.get("contrasena") + "\">");           
+            out.println("<input type=\"password\" id=\"contrasena\" name=\"contrasena\" value=\"" + request.getParameter("contrasena") + "\">");           
             out.println("<br><br><br>");
+            
+            
                     //Informacion general
             out.println("<h3>Informacion general</h3>");           
-            out.println("<p>Preferencias:</p>");           
-            out.println("<input type=\"checkbox\" id=\"deportes\" name=\"preferencias\">");           
+            out.println("<p>Preferencias:</p>");
+            
+            out.println("<input type=\"checkbox\" id=\"deportes\" name=\"preferencias\" value=\"deportes\">");           
             out.println("<label for=\"deportes\">Deportes</label>");           
-            out.println("<input type=\"checkbox\" id=\"lectura\" name=\"preferencias\">");           
+            out.println("<input type=\"checkbox\" id=\"lectura\" name=\"preferencias\" value=\"lectura\">");           
             out.println("<label for=\"lectura\">Lectura</label>");           
-            out.println("<input type=\"checkbox\" id=\"cine\" name=\"preferencias\">");            
+            out.println("<input type=\"checkbox\" id=\"cine\" name=\"preferencias\" value=\"cine\">");            
             out.println("<label for=\"cine\">Cine</label>");
-            out.println("<input type=\"checkbox\" id=\"viajes\" name=\"preferencias\">");
+            out.println("<input type=\"checkbox\" id=\"viajes\" name=\"preferencias\"value=\" viajes\">");
             out.println("<label for=\"viajes\">Viajes</label>");
+
+                    //Botones de enviar y limpiar
             out.println("<br><br>");
             out.println("<input type=\"submit\" name=\"enviar\" value=\"Enviar\">");
             out.println("<input type=\"reset\" name=\"limpiar\" value=\"Limpiar\">");
@@ -219,18 +390,39 @@ public class FormularioValidado extends HttpServlet {
             out.println("</form>");
             out.println("</body>");
             out.println("</html>");
-
-
-
             
             
+        }else{//cierre de la condicion de los campos obligatorios
+            out.println("<!DOCTYPE html>");
+            out.println("<html lang=\"es\">");
+            out.println("<head>");
+            out.println("<meta charset=\"UTF-8\">");           
+            out.println("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">");           
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");           
+            out.println("<title>Datos correctos</title>");            
+            out.println("<link rel=\"stylesheet\" href=\"Styles/styleFormularioValidado.css\">");                      
+            out.println("</head>");
+            out.println("<body>");           
+            out.println("<h3>Datos correctamente enviados</h3>");
+                      
+            Enumeration<String> parametros = request.getParameterNames();
+                while (parametros.hasMoreElements()) {
+                    String nombre = parametros.nextElement();
+                    if (!nombre.startsWith("env")) {
+                        if (!nombre.startsWith("preferencias")) {
+                            out.println(nombre + "-<b>" + request.getParameter(nombre) + "</b> </br>");
+                        } else {
+                            String[] valores = request.getParameterValues(nombre);
+                            for (String datosMostrar : valores) {
+                                out.println(nombre + "-<b>" + datosMostrar + "</b> </br>");
+                            }
+                        }
+                    }
+                }
             
-            
-            
-         
-            
-            
-
+            out.println("</body>");
+            out.println("</html>");
+            }
         }
     }
 

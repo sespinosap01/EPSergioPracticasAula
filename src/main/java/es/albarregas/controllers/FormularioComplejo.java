@@ -49,7 +49,7 @@ public class FormularioComplejo extends HttpServlet {
                     for (String datos: entrada.getValue()) {
                         out.println("<p><b>" + entrada.getKey() + ": </b>" +  datos + "</p>");
                     }
-                }  
+                } 
             }
             out.println("</body>");
             out.println("</html>");
