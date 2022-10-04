@@ -12,34 +12,53 @@
 
 <body>
     <h1>Plantilla Proyectos</h1>
-    <nav>
-        <a href="#">Enlace1</a>
-        <a href="#">Enlace2</a>
-        <a href="#">Enlace3</a>
-        <a href="#">Enlace4</a>
-
-    </nav>
+   
     <div class="estiloContenedor">
-        <ul>
-            <li>
-                <form action="Controlador" method="post">
-                    <input type="submit" value="Llamada por post"/>
-                </form>
-            </li>
-            <li><p><a href="CabecerasPeticion?nombre=Sergio">Llamada por cabeceras</a></p></li>
-            <li><p><a href="HTML/formularioComplejo.html">Formulario Complejo</a></p></li>
-            <li><p><a href="HTML/formularioValidado.html">Formulario Validado</a></p></li>
-            <li>Contenido</li>
-            <li>Contenido</li>
-        </ul>
-        <ul>
-            <li><p><a href="Controlador">Llamada por get</a></p></li>
-            <li><p><a href="HTML/formularioSimple.html">Formulario Simple</a></p></li>
-            <li>Contenido</li>
-            <li>Contenido</li>
-            <li>Contenido</li>
-            <li>Contenido</li>
-        </ul>
+        <table>
+            <tr>
+                <td class="tituloTablas"><h2>Servlets</h2></td>
+                <td class="tituloTablas"><h2>JSP</h2></td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>
+                            <form action="Controlador" method="post">
+                                <input type="submit" value="Llamada por post"/>
+                            </form>
+                        </li>
+                        <li><p><a href="Controlador">Llamada por get</a></p></li>
+                        <li><p><a href="CabecerasPeticion?nombre=Sergio">Llamada por cabeceras</a></p></li>
+                        <li><p><a href="HTML/formularioComplejo.html">Formulario Complejo</a></p></li>
+                        <li><p><a href="HTML/formularioValidado.html">Formulario Validado</a></p></li>
+                        <li><p><a href="HTML/formularioSimple.html">Formulario Simple</a></p></li>
+                        <li><p><a href="CiclosDeVida">Ciclos De Vida</a></p></li>
+                        <li>Contenido...</li>
+                       
+                    </ul>
+
+                </td>
+
+                <td>
+                    <ul>
+                        <li><p><a href="JSP/holaMundo.jsp">Primer JSP</a></p></li>
+                        <li><p><a href="JSP/numerosPrimos.jsp">Numeros Primos</a></p></li>
+                        <li><p><a href="JSP/numeroFactorial.jsp">Numero Factorial</a></p></li>
+                        <li>Contenido...</li>
+                        <li>Contenido...</li>
+                        <li>Contenido...</li>
+                        <li>Contenido...</li>
+                        <li>Contenido...</li>
+
+                    </ul>
+
+                </td>
+            </tr>
+
+
+        </table>
+        
+        
     </div>
     <div class="infoFooter">
         <p>Creado por:</p>
