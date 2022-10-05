@@ -372,7 +372,7 @@ public class FormularioValidado extends HttpServlet {
                     //Informacion general
             out.println("<h3>Informacion general</h3>");           
             out.println("<p>Preferencias:</p>");
-            
+           
             out.println("<input type=\"checkbox\" id=\"deportes\" name=\"preferencias\" value=\"deportes\">");           
             out.println("<label for=\"deportes\">Deportes</label>");           
             out.println("<input type=\"checkbox\" id=\"lectura\" name=\"preferencias\" value=\"lectura\">");           

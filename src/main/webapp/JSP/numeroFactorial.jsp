@@ -14,7 +14,7 @@
     <body>
         <h1>Numero Factorial</h1>
          <%
-            long numero = 15;
+            long numero = 4;
             int factorial = 1;
             for( int i = 1; i <= numero; i++ ) {
             factorial *= i;
