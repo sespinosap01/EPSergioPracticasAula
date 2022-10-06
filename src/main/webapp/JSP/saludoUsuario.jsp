@@ -62,8 +62,7 @@
             String valorSexo = request.getParameter("sexo");
             
         Calendar calendario = Calendar.getInstance();
-        int hora = calendario.get(Calendar.HOUR_OF_DAY);
-      
+        int hora = calendario.get(Calendar.HOUR_OF_DAY);      
         switch (valorSexo){
             case "hombre":
                 if (hora >= 6 && hora < 12){
@@ -76,7 +75,7 @@
                 <h1>Buenas tardes señor <%=valorNombre%></h1>
                     <%                 
                 }
-                if (hora >= 20 && hora < 6){
+                if (hora >= 20 && hora <=24 && hora <6 ){
                 %>
                 <h1>Buenas noches señor <%=valorNombre%></h1>
                     <% 
@@ -94,13 +93,13 @@
                 <h1>Buenas tardes señora <%=valorNombre%></h1>
                     <%
                 }
-                if (hora >= 20 && hora < 6){
+                if (hora >= 20 && hora <=24 && hora <6 ){
                 %>
                 <h1>Buenas noches señora <%=valorNombre%></h1>
                     <%                 
                 }
                 break;
-
+            default:
         }         
         %>
     </body>
